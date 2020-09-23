@@ -1,0 +1,9 @@
+import destinos.*
+
+describe "caracteristicas de Destinos"{
+	
+	test "silver sea no es un destino peligroso"{
+		assert.notThat(marDelPlata.esPeligroso())
+	}
+		
+}

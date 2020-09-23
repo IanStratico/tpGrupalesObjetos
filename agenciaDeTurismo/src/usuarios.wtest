@@ -1,0 +1,24 @@
+import usuarios.*
+import destinos.*
+
+describe "caracteristicas Pablo hari"{
+	
+	test "obtener millas de PHari"{
+		assert.equals(500,pabloHari.cantidadDeKilometros())
+	}
+}
+
+describe "acciones de Pablo Hari"{
+	
+	fixture {
+		pabloHari.volarAUnDestino(marDelPlata)
+	}
+	
+	test "PHari vuela a mar del plata y se agrega a su historial"{
+		assert.that(pabloHari.getConoce().contains(marDelPlata))
+	}
+	
+	test "PHari tiene 150 en su cuenta despues de volar a mar del plata"{
+		assert.equals(150,pabloHari.getBilletera())
+	}
+}
