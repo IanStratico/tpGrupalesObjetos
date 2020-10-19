@@ -1,24 +1,21 @@
 import destinos.*
+import viajes.*
+import mediosDeTransporte.*
 object barrileteCosmico {
 	
 	var destinos = [marDeAjo,marDelPlata,lasToninas,buenosAires]
+	var mediosDeTransporte = [avion,micro]
 	
 	method destinosMasImportantes() {
-		return destinos.filter({destino => destino.getPrecio() > 2000})
+		return destinos.filter({destino => destino.esImportante()})
 	}
 	
 	method aplicarDescueto(descuento) {
 		destinos.forEach({destino => destino.ponerDescuento(descuento)})
-		destinos.forEach({destino => destino.agregarEquipo("Certificado de Descuento")})
 	}
 	
 	method esEmpresaExtrema() {
-		if(destinos.any({destino => destino.esPeligroso()})){
-			return true
-		}
-		else {
-			return false
-		}
+		return destinos.any({destino => destino.esPeligroso()})
 	}
 	
 	method getDestinos(){
@@ -26,6 +23,14 @@ object barrileteCosmico {
 	}
 	method getPrecios() {
 		return destinos.map({destino => destino.getPrecio()}) 
+	}
+	
+	method generarViaje(usuario,destino){
+		 var viaje = new Viaje(localidadOrigen = usuario.getOrigen(), 
+			localidadDestino = destino, 
+			medioDeTransporte = mediosDeTransporte.anyOne()
+		)
+		return viaje
 	}
 	
 }
