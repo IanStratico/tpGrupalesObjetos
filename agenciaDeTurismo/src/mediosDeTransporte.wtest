@@ -1,0 +1,11 @@
+import mediosDeTransporte.*
+
+describe "precio por KM"{
+	test "precio por KM Avion de 2 turbinas"{
+		assert.equals(20,avion.getPrecio())
+	}
+	
+	test "precio por Km barco con probabilidad de cohcar contra iceberg de 0.2"{
+		assert.equals(200,barco.getPrecio())
+	}
+}

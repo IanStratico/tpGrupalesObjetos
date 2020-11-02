@@ -1,4 +1,4 @@
-import destinos.*
+import localidades.*
 import viajes.*
 import mediosDeTransporte.*
 object barrileteCosmico {

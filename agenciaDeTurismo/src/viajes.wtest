@@ -1,0 +1,18 @@
+import viajes.*
+import localidades.*
+
+describe "distancia Entre destinos"{
+	test "la distancia entre las toninas y buenos Aires es 337"{
+		assert.equals(337,lTBsAs.distanciaDeViaje())
+	}
+}
+
+describe "precio viaje"{
+	test "precio viaje de buenosAires a MDQ en Avion"{
+		assert.equals(9430,bsAsMdq.calcularPrecio())
+	}
+	
+	test "precio viaje de Las Toninas a buenosAires en avion"{
+		assert.equals(8240,lTBsAs.calcularPrecio())
+	}
+}

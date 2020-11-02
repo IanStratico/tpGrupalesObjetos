@@ -1,23 +1,24 @@
 import usuarios.*
-import destinos.*
+import localidades.*
 import viajes.*
 import barrileteCosmico.*
 describe "caracteristicas Pablo hari"{
 	
 	fixture {
-		pabloHari.hacerUnViaje(barrileteCosmico.generarViaje(pabloHari,lasToninas))
-		pabloHari.hacerUnViaje(barrileteCosmico.generarViaje(pabloHari,buenosAires))
+		pabloHari.hacerUnViaje(bsAsLT)
+		pabloHari.hacerUnViaje(lTBsAs)
 	}
 	
 	test "obtener millas de PHari"{
-		assert.equals(674,pabloHari.cantidadDeKilometros())
+		assert.equals(337,pabloHari.cantidadDeKilometros())
 	}
+	
 }
 
 describe "acciones de Pablo Hari"{
 	
 	fixture {
-		pabloHari.hacerUnViaje(barrileteCosmico.generarViaje(pabloHari, marDelPlata))
+		pabloHari.hacerUnViaje(bsAsMdq)
 	}
 	
 	test "PHari vuela a mar del plata y se agrega un viaje a su historial"{
@@ -25,6 +26,28 @@ describe "acciones de Pablo Hari"{
 	}
 	
 	test "PHari tiene 7746 en su cuenta despues de volar a mar del plata"{
-		assert.equals(7746,pabloHari.getBilletera())
+		assert.equals(70,pabloHari.getBilletera())
+	}
+}
+
+describe "Pablo hari por ser empresario solo viaja en Avion"{
+	
+	fixture{
+		pabloHari.hacerUnViaje(barrileteCosmico.generarViaje(pabloHari,marDeAjo))
+	}
+	
+	test "pablo hari no puede viajar si no es en avion"{
+		assert.equals(0,pabloHari.getViajesQueHizo().size())
+	}
+}
+
+describe "Usuarios Seguidos"{
+	
+	fixture {
+		pabloHari.seguirUsuario(pabloMarmol)
+	}
+	
+	test "Pablo Hari tiene 1 seguidor"{
+		assert.equals(1,pabloHari.getSeguidores().size())
 	}
 }

@@ -1,17 +1,17 @@
 import barrileteCosmico.*
-import destinos.*
+import localidades.*
 
 describe "caracteristicas destinos" {
 	
 
 	test "obtener destinos mas importantes de la agencia" {
 	
-		assert.equals([marDeAjo,lasToninas],barrileteCosmico.destinosMasImportantes())
+		assert.equals([marDeAjo,lasToninas,buenosAires],barrileteCosmico.destinosMasImportantes())
 	
 	}
 	
 	test "obtener destinos mas peligroso de la agencia"{
-		assert.equals([lasToninas],barrileteCosmico.getDestinos().filter({destino => destino.esPeligroso()}))
+		assert.equals([],barrileteCosmico.getDestinos().filter({destino => destino.esPeligroso()}))
 	}
 
 }
@@ -49,8 +49,8 @@ describe "descuento de 15 a destinos"{
 
 describe "caracteriscas de la empresa"{
 	
-	test "barrileteCosmico es una empresa extrema"{
-		assert.that(barrileteCosmico.esEmpresaExtrema())
+	test "barrileteCosmico no es una empresa extrema"{
+		assert.notThat(barrileteCosmico.esEmpresaExtrema())
 	}
 	
 	test "conocer destinos de la empresa"{
